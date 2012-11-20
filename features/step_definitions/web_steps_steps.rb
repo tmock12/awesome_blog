@@ -28,6 +28,10 @@ Given /^I am on the "([^"]*)" page$/ do |path_name|
   current_path.should == send("#{path_name.parameterize('_')}_path")
 end
 
+Given /^I go to the "([^"]*)" page$/ do |path_name|
+  visit(send("#{path_name.parameterize('_')}_path"))
+end
+
 Then /^I should be on the home page$/ do
   current_path.should == root_path
 end

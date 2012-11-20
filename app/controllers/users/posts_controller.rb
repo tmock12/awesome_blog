@@ -1,4 +1,6 @@
 class Users::PostsController < ApplicationController
+  before_filter :authorize
+
   expose(:post) { current_user.posts.new(params[:post]) }
   expose(:user_post) { current_user.posts.find(params[:id]) }
 

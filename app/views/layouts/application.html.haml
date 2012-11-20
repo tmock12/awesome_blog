@@ -11,6 +11,7 @@
       - if current_user
         %p signed in as #{current_user.name}
         =link_to "My Dashboard", dashboard_path
+        =link_to "sign out", signout_path
       - else
         = link_to "sign up / sign in", "/auth/twitter"
       - flash.keys.each do |type|
