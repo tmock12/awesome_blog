@@ -1,4 +1,3 @@
 class PostsController < ApplicationController
-  expose(:posts)
+  expose(:posts) { Post.published }
 end
-
