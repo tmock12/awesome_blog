@@ -14,4 +14,9 @@ class Users::PostsController < ApplicationController
     user_post.update_attributes(params[:post])
     redirect_to :dashboard, notice: "Your post has been updated."
   end
+
+  def destroy
+    user_post.destroy
+    redirect_to :dashboard, notice: "Your post has been deleted"
+  end
 end

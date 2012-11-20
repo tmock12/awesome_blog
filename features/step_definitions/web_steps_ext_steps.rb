@@ -12,3 +12,7 @@ When /^I select "([^\"]*)" as the date$/ do |date|
   find(:css, "select[id*='2i']").select(month)
   find(:css, "select[id*='3i']").select(day.to_i.to_s)
 end
+
+When "I confirm" do
+  page.driver.browser.switch_to.alert.accept
+end
