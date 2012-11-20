@@ -2,9 +2,17 @@
 
 %html
   %head
-    %title Leetcompete
+    %title AwesomeBlog
   = stylesheet_link_tag "application", media: "all"
   = javascript_include_tag "application"
   = csrf_meta_tags
   %body
+    %header
+      - if current_user
+        %p signed in as #{current_user.name}
+      - else
+        = link_to "sign up / sign in", "/auth/twitter"
+      - flash.keys.each do |type|
+        .flash{ class: type }
+          %p= flash[type]
     = yield
