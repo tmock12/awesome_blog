@@ -48,3 +48,8 @@ Then /^I should see the following (.*) in the database:$/ do |model_name, table|
   klass = Fabrication::Cucumber::StepFabricator.new(model_name).klass
   klass.where(table.rows_hash.symbolize_keys).count.should == 1
 end
+
+Given /^I have the following post:$/ do |table|
+  current_user = User.last
+  current_user.posts.create(title: table.rows_hash['Title'], content: table.rows_hash['Content'])
+end

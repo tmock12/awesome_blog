@@ -5,3 +5,4 @@ Welcome to your dashboard
   - posts.each do |post|
     %li
       = post.title
+      =link_to "Edit Post", edit_user_post_path(current_user, post)
