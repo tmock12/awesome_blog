@@ -1,9 +1,17 @@
 AwesomeBlog::Application.routes.draw do
 
-  root to: 'pages#index'
+  root to: 'posts#index'
+
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
+  match 'dashboard', to: 'users#show', as: 'dashboard'
+
+  resources :users, only: [:show] do
+    resources :posts, controller: 'users/posts'
+  end
+
+  resources :posts, only: :index
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

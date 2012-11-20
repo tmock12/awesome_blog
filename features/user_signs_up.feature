@@ -6,6 +6,6 @@ Feature: User sessions
           | nickname | FunkyMonkey |
     And I am on the home page
     When I follow "sign up / sign in"
-    Then I should be on the home page
+    Then I should be on the "dashboard" page
     And I should see "signed in as FunkyMonkey"
     And I should see "Signed in!"

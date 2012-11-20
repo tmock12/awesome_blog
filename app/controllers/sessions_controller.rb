@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def create
     session[:user_id] = user.id
-    redirect_to root_url, notice: "Signed in!"
+    redirect_to dashboard_path, notice: "Signed in!"
   end
 
   def destroy

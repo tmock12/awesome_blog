@@ -24,6 +24,10 @@ Then /^I should be on the "([^"]*)" page$/ do |path_name|
   current_path.should == send("#{path_name.parameterize('_')}_path")
 end
 
+Given /^I am on the "([^"]*)" page$/ do |path_name|
+  current_path.should == send("#{path_name.parameterize('_')}_path")
+end
+
 Then /^I should be on the home page$/ do
   current_path.should == root_path
 end
@@ -40,3 +44,15 @@ end
 Then "I pry" do
   require 'pry'; binding.pry
 end
+
+Given "I am signed in" do
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
+    :provider => 'twitter',
+    :uid => 12345,
+    :info => { :nickname => 'dummy' }
+  })
+  visit '/auth/twitter'
+end
+
+

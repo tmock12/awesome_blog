@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :posts, dependent: :destroy
   attr_accessible :name, :provider, :uid
 
   def self.from_omniauth(auth)

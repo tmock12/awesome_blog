@@ -1,0 +1,7 @@
+Welcome to your dashboard
+= link_to "create new post", new_user_post_path(current_user)
+
+%ul
+  - posts.each do |post|
+    %li
+      = post.title

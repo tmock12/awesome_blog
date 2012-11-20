@@ -1,0 +1,11 @@
+= form_for post, url: user_posts_path(current_user) do |f|
+
+  %dl
+    %dt=f.label :title
+    %dd=f.text_field :title
+
+  %dl
+    %dt=f.label :content
+    %dd=f.text_area :content
+
+  = f.submit "Create Post"
