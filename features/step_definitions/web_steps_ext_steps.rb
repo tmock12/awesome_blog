@@ -16,3 +16,11 @@ end
 When "I confirm" do
   page.driver.browser.switch_to.alert.accept
 end
+
+When /^I attach the file at "([^\"]*)" to "([^\"]*)"$/ do |path, field|
+  attach_file(field, path)
+end
+
+Then /^I should see the image "(.+)"$/ do |image|
+  page.should have_xpath("//img[contains(@src, \"#{image}\")]")
+end
