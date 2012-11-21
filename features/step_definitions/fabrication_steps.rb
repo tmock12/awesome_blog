@@ -51,5 +51,8 @@ end
 
 Given /^I have the following post:$/ do |table|
   current_user = User.last
-  current_user.posts.create(title: table.rows_hash['Title'], content: table.rows_hash['Content'])
+  current_user.posts.create(title: table.rows_hash['Title'],
+                            content: table.rows_hash['Content'],
+                            publish_time: Time.now
+                           )
 end

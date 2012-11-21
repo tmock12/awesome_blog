@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth["info"]["nickname"]
+      user.oauth_token = auth["credentials"]["token"]
+      user.oauth_token_secret = auth["credentials"]["secret"]
     end
   end
 
