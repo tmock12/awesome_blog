@@ -7,6 +7,8 @@ class Users::PostsController < ApplicationController
   def create
     if post.save
       redirect_to :dashboard
+    else
+      render :new
     end
   end
 
