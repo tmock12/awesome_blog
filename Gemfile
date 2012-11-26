@@ -1,61 +1,34 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'rails', '3.2.8'
-gem 'hashrocket-rails'
-gem 'haml-rails'
-gem 'omniauth-twitter'
+gem "haml-rails"
+gem "hashrocket-rails"
+gem "jquery-rails"
+gem "omniauth-twitter"
 gem "paperclip", "~> 3.0"
-gem "twitter"
 gem "pygments.rb"
+gem "rails", "3.2.8"
 gem "redcarpet"
+gem "twitter"
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-
-
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier', '>= 1.0.3'
+  gem "sass-rails",   "~> 3.2.3"
+  gem "coffee-rails", "~> 3.2.1"
+  gem "uglifier", ">= 1.0.3"
 end
 
 group :test do
-  gem 'cucumber-rails'
-  gem 'database_cleaner'
-  gem 'launchy'
-  gem 'rspec-rails'
+  gem "cucumber-rails"
+  gem "database_cleaner"
+  gem "launchy"
+  gem "rspec-rails"
 end
 
 group :test, :development do
-  gem 'fabrication'
-  gem 'pry'
-  gem 'sqlite3'
+  gem "fabrication"
+  gem "pry"
+  gem "sqlite3"
 end
 
 group :production do
-  gem 'pg', '0.12.2'
+  gem "pg", "0.12.2"
 end
-
-gem 'jquery-rails'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
