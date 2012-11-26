@@ -3,6 +3,9 @@ class Post < ActiveRecord::Base
   attr_accessible :content, :publish_time, :published, :title, :user_id, :attached_image
   has_attached_file :attached_image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :history]
+
   before_create :set_published_attribute
 
   belongs_to :user

@@ -35,3 +35,7 @@ Then "I should be on that user posts page" do
   post = Post.last
   current_path.should == user_post_path(user, post)
 end
+
+When /^I visit the "(.*?)" url$/ do |url|
+  visit "/posts/#{url.parameterize}"
+end

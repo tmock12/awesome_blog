@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem "friendly_id"
 gem "haml-rails"
 gem "hashrocket-rails"
 gem "jquery-rails"
