@@ -10,7 +10,6 @@ gem "twitter"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 
 
 # Gems used only for assets and not required
@@ -35,8 +34,12 @@ end
 group :test, :development do
   gem 'fabrication'
   gem 'pry'
+  gem 'sqlite3'
 end
 
+group :production do
+  gem 'pg', '0.12.2'
+end
 
 gem 'jquery-rails'
 
