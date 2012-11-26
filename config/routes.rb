@@ -11,7 +11,7 @@ AwesomeBlog::Application.routes.draw do
     resources :posts, controller: 'users/posts'
   end
 
-  resources :posts, only: :index
+  resources :posts, only: [:index, :show]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

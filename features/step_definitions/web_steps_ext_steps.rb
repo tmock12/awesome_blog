@@ -24,3 +24,8 @@ end
 Then /^I should see the image "(.+)"$/ do |image|
   page.should have_xpath("//img[contains(@src, \"#{image}\")]")
 end
+
+Then "I should be on that posts page" do
+  post = Post.last
+  current_path.should == post_path(post)
+end

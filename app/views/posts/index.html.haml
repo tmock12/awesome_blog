@@ -1,5 +1,5 @@
 - posts.each do |post|
   .blog-post
-    %h2= post.title
+    %h2= link_to  post.title, post_path(post)
     %p= post.content
-    =image_tag post.attached_image.url(:medium)
+    = image_tag post.attached_image.url(:medium) if post.attached_image_file_name
