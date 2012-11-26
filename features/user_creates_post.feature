@@ -35,3 +35,16 @@ Feature: User creates a post
     Then I should be on the "dashboard" page
     When I follow "AWESOME BLOG"
     Then I should see the image "test-image.jpg"
+
+ Scenario: User creates a post with code block
+    Given I am signed in
+    And I am on the "dashboard" page
+    When I follow "create new post"
+    And I fill in the following:
+      | Title   | Print Hello World in Ruby            |
+      | Content | ```ruby \n puts 'hello world' \n ``` |
+    And I press "Create Post"
+    Then I should be on the "dashboard" page
+    When I follow "AWESOME BLOG"
+    And I follow "Print Hello World in Ruby"
+    Then I should see a highlighted code section

@@ -1,5 +1,5 @@
 .blog-post
   %h2=post.title
-  %p= post.content
-  = image_tag post.attached_image.url(:medium)
+  %p= markdown post.content
+  = image_tag post.attached_image.url(:medium) if post.attached_image_file_name
   = render partial: "disqus"

@@ -6,6 +6,8 @@ gem 'haml-rails'
 gem 'omniauth-twitter'
 gem "paperclip", "~> 3.0"
 gem "twitter"
+gem "pygments.rb"
+gem "redcarpet"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
