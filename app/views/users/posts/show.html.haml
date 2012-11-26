@@ -1,0 +1,6 @@
+%ul
+  %li Published Status: #{user_post.published}
+  %li Set Publish Time: #{user_post.publish_time}
+  %li= link_to "Edit Post", edit_user_post_path(current_user, user_post)
+.blog-post
+  = render partial: "posts/blog_post", locals: { post: user_post }

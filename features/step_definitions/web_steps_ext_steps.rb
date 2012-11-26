@@ -29,3 +29,9 @@ Then "I should be on that posts page" do
   post = Post.last
   current_path.should == post_path(post)
 end
+
+Then "I should be on that user posts page" do
+  user = User.last
+  post = Post.last
+  current_path.should == user_post_path(user, post)
+end
