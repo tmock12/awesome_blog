@@ -1,9 +1,13 @@
 %dl
-  %dt=f.label :title
+  %dt
+    =f.label :title
+    %span.error= post.errors[:title].first
   %dd=f.text_field :title
 
 %dl
-  %dt=f.label :content
+  %dt
+    =f.label :content
+    %span.error= post.errors[:content].first
   %dd=f.text_area :content
 
 %dl

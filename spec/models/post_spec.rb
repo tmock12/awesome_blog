@@ -31,4 +31,26 @@ describe Post do
 
   end
 
+  describe "validations" do
+
+    let(:post) { Post.new }
+
+    it "validates presence of title" do
+      post.should have(1).errors_on(:title)
+    end
+
+    it "validates presence of content" do
+      post.should have(1).errors_on(:content)
+    end
+
+    it "validates presence of publish time" do
+      post.should have(1).errors_on(:publish_time)
+    end
+
+    it "validates presence of user" do
+      post.should have(1).errors_on(:user)
+    end
+
+  end
+
 end
