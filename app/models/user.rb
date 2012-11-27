@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
       user.name = auth["info"]["nickname"]
       user.oauth_token = auth["credentials"]["token"]
       user.oauth_token_secret = auth["credentials"]["secret"]
+      user.time_zone = auth["extra"]["raw_info"]["time_zone"]
     end
   end
 

@@ -63,7 +63,8 @@ Given "I am signed in" do
     :provider => 'twitter',
     :uid => 12345,
     :info => { :nickname => 'dummy' },
-    :credentials => { :token => 1234, :secret => 4321 }
+    :credentials => { :token => 1234, :secret => 4321 },
+    :extra => { :raw_info => { :time_zone => nil }}
   })
   visit '/auth/twitter'
 end

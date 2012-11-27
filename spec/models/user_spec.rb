@@ -5,7 +5,8 @@ describe User do
   TWITTER_RESPONSE = {"provider"=>"twitter",
                       "uid"=>"54321",
                       "info"=> {"nickname"=>"Tmock12"},
-                      "credentials" => { "token" => "1234", "secret" => "4321" }
+                      "credentials" => { "token" => "1234", "secret" => "4321" },
+                      "extra" => { "raw_info" => { "time_zone" => "Bucharest" } }
                       }
 
   describe '.create_from_omniauth' do
@@ -33,6 +34,19 @@ describe User do
           User.from_omniauth(TWITTER_RESPONSE)
         }.to change(User, :count).by(1)
       end
+    end
+
+  end
+
+  describe "time zone" do
+
+    it "defaults to eastern time" do
+      Time.zone.name.should == "Eastern Time (US & Canada)"
+    end
+
+    it "stores a users time zone" do
+      user_from_bucharest = User.create_from_omniauth(TWITTER_RESPONSE)
+      user_from_bucharest.time_zone.should == "Bucharest"
     end
 
   end

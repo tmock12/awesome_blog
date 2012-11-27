@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121126214151) do
+ActiveRecord::Schema.define(:version => 20121127155001) do
 
   create_table "friendly_id_slugs", :force => true do |t|
     t.string   "slug",                         :null => false
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20121126214151) do
     t.datetime "updated_at",         :null => false
     t.string   "oauth_token"
     t.string   "oauth_token_secret"
+    t.string   "time_zone"
   end
 
 end
