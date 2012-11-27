@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  expose(:posts) { Post.published }
+  expose(:posts) { Post.published.paginate(page: params[:page], per_page: 3) }
   expose(:post)
 
   def show

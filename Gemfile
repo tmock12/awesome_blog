@@ -10,6 +10,7 @@ gem "pygments.rb"
 gem "rails", "3.2.8"
 gem "redcarpet"
 gem "twitter"
+gem "will_paginate", "~> 3.0"
 
 group :assets do
   gem "sass-rails",   "~> 3.2.3"

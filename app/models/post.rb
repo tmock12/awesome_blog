@@ -15,7 +15,7 @@ class Post < ActiveRecord::Base
     record.errors.add(attr, 'must be in future') if value < (Time.zone.now - 5.minutes)
   end
 
-  scope :published, lambda { where("publish_time < ?", Time.zone.now ) }
+  scope :published, lambda { order("publish_time DESC").where("publish_time < ?", Time.zone.now ) }
 
   def set_published_attribute
     if self.publish_time <= Time.zone.now
