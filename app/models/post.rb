@@ -6,22 +6,27 @@ class Post < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: [:slugged, :history]
 
-  before_create :set_published_attribute
+  before_create :set_initial_published_attribute
 
   belongs_to :user
 
   validates :title, :content, :publish_time, :user, presence: true
-  validates_each :publish_time do |record, attr, value|
+  validates_each :publish_time, on: :create do |record, attr, value|
     record.errors.add(attr, 'must be in future') if value < (Time.zone.now - 5.minutes)
   end
 
   scope :published, lambda { order("publish_time DESC").where("publish_time < ?", Time.zone.now ) }
 
-  def set_published_attribute
+  def set_initial_published_attribute
     if self.publish_time <= Time.zone.now
       send_to_twitter if Rails.env == "production"
       self.published = true
     end
+  end
+
+  def set_published_attribute
+    self.update_attribute(:published, true)
+    send_to_twitter if Rails.env == "production"
   end
 
   def send_to_twitter

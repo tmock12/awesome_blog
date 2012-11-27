@@ -10,10 +10,11 @@
     %span.error= post.errors[:content].first
   %dd=f.text_area :content
 
-%dl
-  %dt=f.label :publish_time
-  %span.error= post.errors[:publish_time].first
-  %dd=f.datetime_select :publish_time, use_month_numbers: true
+-unless post.published
+  %dl
+    %dt=f.label :publish_time
+    %span.error= post.errors[:publish_time].first
+    %dd=f.datetime_select :publish_time, use_month_numbers: true
 
 %dl
   %dt=f.label :attached_image

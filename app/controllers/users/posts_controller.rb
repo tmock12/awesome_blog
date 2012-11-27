@@ -13,8 +13,11 @@ class Users::PostsController < ApplicationController
   end
 
   def update
-    user_post.update_attributes(params[:post])
-    redirect_to :dashboard, notice: "Your post has been updated."
+    if  user_post.update_attributes(params[:post])
+      redirect_to :dashboard, notice: "Your post has been updated."
+    else
+      render :edit
+    end
   end
 
   def destroy
