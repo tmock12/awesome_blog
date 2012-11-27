@@ -8,4 +8,4 @@ Welcome to your dashboard
       =link_to "Edit Post", edit_user_post_path(current_user, post)
       =link_to "Delete Post", user_post_path(current_user, post), method: :delete, confirm: "Are you sure?"
       =link_to "Preview Post", user_post_path(current_user, post)
-      %strong Publish Time: #{post.publish_time}
+      %strong Publish Time: #{time_tag post.publish_time}

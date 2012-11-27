@@ -1,6 +1,6 @@
 %ul
   %li Published Status: #{user_post.published}
-  %li Set Publish Time: #{user_post.publish_time}
+  %li Set Publish Time: #{time_tag user_post.publish_time}
   %li= link_to "Edit Post", edit_user_post_path(current_user, user_post)
 .blog-post
   %h2= user_post.title
