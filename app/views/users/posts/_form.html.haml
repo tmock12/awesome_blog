@@ -12,6 +12,7 @@
 
 %dl
   %dt=f.label :publish_time
+  %span.error= post.errors[:publish_time].first
   %dd=f.datetime_select :publish_time, use_month_numbers: true
 
 %dl

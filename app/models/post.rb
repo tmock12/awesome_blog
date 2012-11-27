@@ -11,12 +11,15 @@ class Post < ActiveRecord::Base
   belongs_to :user
 
   validates :title, :content, :publish_time, :user, presence: true
+  validates_each :publish_time do |record, attr, value|
+    record.errors.add(attr, 'must be in future') if value < (Time.zone.now - 5.minutes)
+  end
 
   scope :published, lambda { where("publish_time < ?", Time.zone.now ) }
 
   def set_published_attribute
     if self.publish_time <= Time.zone.now
-      send_to_twitter unless Rails.env == "test"
+      send_to_twitter if Rails.env == "production"
       self.published = true
     end
   end

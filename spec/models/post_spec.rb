@@ -33,7 +33,7 @@ describe Post do
 
   describe "validations" do
 
-    let(:post) { Post.new }
+    let(:post) { Post.new(publish_time: 1.day.ago) }
 
     it "validates presence of title" do
       post.should have(1).errors_on(:title)
@@ -43,7 +43,7 @@ describe Post do
       post.should have(1).errors_on(:content)
     end
 
-    it "validates presence of publish time" do
+    it "validates publish time is in the future" do
       post.should have(1).errors_on(:publish_time)
     end
 
