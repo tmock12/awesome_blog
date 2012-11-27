@@ -3,4 +3,5 @@
   %li Set Publish Time: #{user_post.publish_time}
   %li= link_to "Edit Post", edit_user_post_path(current_user, user_post)
 .blog-post
+  %h2= user_post.title
   = render partial: "posts/blog_post", locals: { post: user_post }
