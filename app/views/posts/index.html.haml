@@ -1,5 +1,8 @@
 - posts.each do |post|
   .blog-post
     %h2= link_to  post.title, post_path(post)
+    %h5 #{distance_of_time_in_words(post.publish_time, Time.zone.now)} ago
+    %p= simple_format(post.content)
+    .feature_image= image_tag post.attached_image.url(:medium) if post.attached_image_file_name
 
 =will_paginate posts
