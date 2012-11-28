@@ -30,27 +30,7 @@ class Post < ActiveRecord::Base
   end
 
   def send_to_twitter
-    user_twitter_account.update(tweet)
-  end
-
-  def tweet
-    "#{self.title} published. see it here: #{full_post_url}"
-  end
-
-  def full_post_url
-    ENV['WEBHOSTNAME'] + Rails.application.routes.url_helpers.post_path(self)
-  end
-
-  def user_twitter_account
-    Twitter::Client.new(oauth_token: user_oauth_token, oauth_token_secret: user_oauth_secret)
-  end
-
-  def user_oauth_token
-    self.user.oauth_token
-  end
-
-  def user_oauth_secret
-    self.user.oauth_token_secret
+    Tweet.new(self).tweet_it
   end
 
   def self.publish_articles
