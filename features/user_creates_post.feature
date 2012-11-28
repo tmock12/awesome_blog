@@ -4,7 +4,8 @@ Feature: User creates a post
     Given I am signed in
     And I am on the "dashboard" page
     When I follow "create new post"
-    And I fill in the following:
+    Then I should see "(GMT-05:00) Eastern Time (US & Canada)"
+    When I fill in the following:
       | Title       | How to Surf            |
       | Content     | Stand up on your board |
     And I press "Create Post"
